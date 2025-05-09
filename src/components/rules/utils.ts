@@ -46,7 +46,7 @@ export const addCondition = (groupId: string, rootCondition: GroupCondition, con
     return {
       ...group,
       conditions: group.conditions.map(cond => 
-        (cond as any).isNested ? addToGroup(cond as GroupCondition) : cond
+        cond.isNested ? addToGroup(cond as GroupCondition) : cond
       )
     };
   };
@@ -78,8 +78,8 @@ export const addGroup = (
     return {
       ...group,
       conditions: group.conditions.map(cond => 
-        (cond as any).isNested ? addToGroup(cond as GroupCondition) : cond
-      )
+        cond.isNested ? addToGroup(cond as GroupCondition) : cond
+      ) as (SimpleCondition | GroupCondition)[]
     };
   };
   
@@ -96,14 +96,14 @@ export const updateCondition = (
     return {
       ...group,
       conditions: group.conditions.map(cond => {
-        if (!(cond as any).isNested && cond.id === conditionId) {
+        if (!cond.isNested && cond.id === conditionId) {
           return { ...cond, ...updates };
         }
-        if ((cond as any).isNested) {
+        if (cond.isNested) {
           return updateInGroup(cond as GroupCondition);
         }
         return cond;
-      })
+      }) as (SimpleCondition | GroupCondition)[]
     };
   };
   
@@ -124,8 +124,8 @@ export const updateGroup = (
     return {
       ...group,
       conditions: group.conditions.map(cond => 
-        (cond as any).isNested ? updateGroups(cond as GroupCondition) : cond
-      )
+        cond.isNested ? updateGroups(cond as GroupCondition) : cond
+      ) as (SimpleCondition | GroupCondition)[]
     };
   };
   
@@ -139,7 +139,7 @@ export const removeCondition = (id: string, rootCondition: GroupCondition): Grou
       ...group,
       conditions: group.conditions
         .filter(cond => cond.id !== id)
-        .map(cond => (cond as any).isNested ? removeFromGroup(cond as GroupCondition) : cond)
+        .map(cond => cond.isNested ? removeFromGroup(cond as GroupCondition) : cond) as (SimpleCondition | GroupCondition)[]
     };
   };
   
