@@ -22,9 +22,6 @@ export const createEmptyRule = (): Rule => ({
   isActive: true
 });
 
-// Utility to generate unique IDs
-export const generateId = () => `id-${Math.random().toString(36).substring(2, 9)}`;
-
 // Add a simple condition to a group
 export const addCondition = (groupId: string, rootCondition: GroupCondition, condition?: SimpleCondition): GroupCondition => {
   const newCondition: SimpleCondition = condition || {
