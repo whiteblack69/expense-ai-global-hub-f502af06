@@ -26,7 +26,14 @@ import {
 } from "@/components/ui/dialog";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Filter, Flag, Save, Trash } from "lucide-react";
-import { Rule, GroupCondition, SimpleCondition, RuleAction, ActionField, countries } from './types';
+import { 
+  Rule, 
+  GroupCondition, 
+  SimpleCondition, 
+  RuleAction, 
+  ActionField, 
+  countries 
+} from './types';
 import ConditionGroup from './ConditionGroup';
 import RuleActionComponent from './RuleAction';
 

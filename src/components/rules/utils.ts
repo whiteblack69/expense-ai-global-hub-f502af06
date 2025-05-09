@@ -2,7 +2,8 @@
 import {
   SimpleCondition,
   GroupCondition,
-  Rule
+  Rule,
+  generateId
 } from './types';
 
 // Helper function to create a default empty rule

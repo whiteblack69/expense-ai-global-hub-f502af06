@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { 
   Rule, 
@@ -6,11 +5,11 @@ import {
   GroupCondition, 
   RuleAction, 
   ActionField,
-  mockRules
+  mockRules,
+  generateId
 } from '../types';
 import {
   createEmptyRule,
-  generateId,
   addCondition,
   addGroup,
   updateCondition,

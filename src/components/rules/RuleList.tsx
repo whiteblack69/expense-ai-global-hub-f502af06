@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,7 +10,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { ChevronDown, ChevronUp, Edit, Trash } from "lucide-react";
-import { Rule, GroupCondition, SimpleCondition, actionTypes, conditionTypes, operatorsByType } from './types';
+import { 
+  Rule, 
+  GroupCondition, 
+  SimpleCondition, 
+  actionTypes, 
+  conditionTypes, 
+  operatorsByType 
+} from './types';
 
 interface RuleListProps {
   rules: Rule[];
